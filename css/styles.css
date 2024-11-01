@@ -1,0 +1,278 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  color: #333;
+  background-color: #F0F0F0;
+}
+
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+  color: #1E90FF; /* Sky Blue */
+}
+
+h1 {
+  font-weight: 700;
+}
+
+h2, h3 {
+  font-weight: 500;
+}
+
+/* Header */
+header {
+  background-color: #1E90FF; /* Sky Blue */
+  padding: 20px;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 {
+  font-size: 1.8em;
+}
+
+nav a {
+  margin: 0 10px;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content */
+main {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Section Styling */
+section {
+  background-color: #FFFFFF;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+  margin-bottom: 15px;
+}
+
+/* Current Weather Section */
+#current-weather p {
+  font-size: 1.1em;
+  line-height: 1.5;
+}
+
+#current-weather button {
+  padding: 5px 10px;
+  background-color: #FF4500; /* Red */
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#current-weather button:hover {
+  background-color: #e03f00;
+}
+#alert-message {
+    padding: 10px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    margin-top: 10px;
+}
+
+.alert {
+    margin-bottom: 10px;
+}
+
+#alert-message.expanded .alert {
+    display: block;
+}
+
+/* Ensures historical data container has sufficient space and is centered */
+#historical-data {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #f9f9f9; /* Optional for visibility */
+  border: 1px solid #ddd; /* Optional for visibility */
+  border-radius: 5px;
+}
+
+/* Consolidated styles for #history-chart */
+#history-chart {
+  width: 100%; /* Responsive width */
+  height: 400px; /* Ensures chart has enough vertical space */
+  max-width: 100%; /* Prevents overflow issues */
+  display: block; /* Ensures visibility */
+  margin: 0 auto; /* Centers chart within #historical-data */
+}
+
+/* Map Section */
+#map-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.map-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.map-controls button {
+  padding: 10px;
+  background-color: #1E90FF;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  flex: 1 1 45%;
+  max-width: 150px;
+}
+
+.map-controls button:hover {
+  background-color: #187bcd;
+}
+#map {
+    height: 400px;
+    width: 100%;
+}
+
+
+#map {
+  width: 100%;
+  height: 400px;
+  
+}
+
+@media (max-width: 768px) {
+  #map {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  #map {
+    height: 250px;
+  }
+  .map-controls {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Historical Data and Alerts */
+#data-alerts {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+#data-alerts div {
+  flex: 1;
+}
+
+canvas {
+  max-width: 100%;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+}
+
+/* Forecast Options */
+#weather-output {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#weather-output label {
+  font-weight: bold;
+}
+
+#forecast-duration, #location-input {
+  padding: 8px;
+  font-size: 1em;
+  border: 1px solid #CCC;
+  border-radius: 4px;
+}
+
+#search-btn {
+  padding: 10px;
+  background-color: #1E90FF;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#search-btn:hover {
+  background-color: #187bcd;
+}
+
+/* Bookmarked Locations, Language, Feedback */
+#additional-options h3 {
+  margin-top: 15px;
+}
+
+#language-select, #feedback-input {
+  width: 100%;
+  padding: 8px;
+  font-size: 1em;
+  border: 1px solid #CCC;
+  border-radius: 4px;
+}
+
+#feedback-input {
+  height: 80px;
+}
+
+#additional-options button {
+  padding: 8px 12px;
+  background-color: #FF4500;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#additional-options button:hover {
+  background-color: #e03f00;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #1E90FF;
+  color: #FFFFFF;
+  margin-top: 20px;
+  font-size: 0.9em;
+}
+
+footer nav a {
+  color: #FFFFFF;
+  margin: 0 8px;
+  text-decoration: none;
+}
+
+footer nav a:hover {
+  text-decoration: underline;
+}

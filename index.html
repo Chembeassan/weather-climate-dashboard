@@ -3,19 +3,129 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather and Climate Dashboard</title>
+  <title>Weather Climate Dashboard</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@500;700&family=Raleway:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div class="weather-card">
-    <h2 id="location">Location Name</h2>
-    <p id="temperature">Temperature: --°C</p>
-    <p id="humidity">Humidity: --%</p>
-    <p id="wind">Wind Speed: --m/s</p>
-  </div>
+  
+  <!-- Header -->
+  <header>
+    <h1>Weather Climate Dashboard</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Settings</a>
+    </nav>
+  </header>
 
-  <script src="js/weatherData.js"></script>
+  <!-- Main Content -->
+  <main>
+
+    <!-- Current Weather Section -->
+    <section id="current-weather">
+      <h2>Current Weather</h2>
+      <div id="weather-info">
+        <p>Location: <span id="location"></span> <button id="set-location">Set Location</button></p>
+        <p>Temperature: <span id="temperature"></span></p>
+        <p>Condition: <span id="condition"></span></p>
+        <p>Wind: <span id="wind-speed"></span> | Humidity: <span id="humidity"></span></p>
+        
+      </div>
+    </section>
+    
+    <!-- Loading Indicator -->
+    <section id="loading" style="display: none;">
+      <p>Loading...</p>
+    </section>
+
+    <!-- Map Container -->
+    <section id="map-container">
+    <h2>Map Options</h2>
+    <div class="map-controls">
+    <button id="view-map">View Map</button>
+    <button id="current-location">Current Location</button>
+  </div>
+  <div id="map"></div>
+</section>
+
+
+    <!-- Historical Data and Alerts Section -->
+    <section id="data-alerts">
+      <div id="historical-data">
+        <h2>Historical Data</h2>
+        <canvas id="history-chart"></canvas>
+        <button id="load-historical-data">Load Historical Data</button>
+      </div>
+      <div id="alerts">
+        <h2>Weather Alerts</h2>
+        <div id="alert-message"></div>
+        <button id="view-all-alerts">View All</button>
+      </div>
+    </section>
+
+    <!-- Forecast Options -->
+    <section id="weather-output">
+      <h2>Forecast Options</h2>
+      <label for="forecast-duration">Select Forecast Duration:</label>
+      <select id="forecast-duration">
+        <option value="1">1 Hour</option>
+        <option value="3">3 Hours</option>
+        <option value="7">7 Days</option>
+        <option value="14">14 Days</option>
+      </select>
+      <input type="text" id="location-input" placeholder="Enter location">
+      <button id="search-btn">Search</button>
+    </section>
+
+    <!-- Additional Options: Bookmarked Locations, Language, Feedback -->
+    <section id="additional-options">
+      <h2>Saved Locations</h2>
+      <ul id="bookmarked-locations"></ul>
+      
+      <div>
+        <h3>Language</h3>
+        <select id="language-select" onchange="changeLanguage(this.value)">
+          <option value="en">English</option>
+          <option value="es">Spanish</option>
+          <option value="por">Portuguese</option>
+          <option value="ch">Chichewa</option>
+        </select>
+      </div>
+      
+      <div>
+        <h3>Leave Feedback</h3>
+        <textarea id="feedback-input" placeholder="Enter your feedback"></textarea>
+        <button onclick="submitFeedback()">Submit Feedback</button>
+      </div>
+    </section>
+    
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <nav>
+      <a href="#">About Us</a> |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Support</a> |
+      <a href="#">Terms of Service</a>
+    </nav>
+    <p>© 2024 Weather Dashboard App</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/alerts.js"></script>
+  <script src="js/climateData.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/data-alerts.js"></script>
+  <script src="js/visualization.js"></script>
+  <script src="js/weatherData.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>
-
